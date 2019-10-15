@@ -35,7 +35,7 @@ def process_commented_submissions():
                                 c.execute("DELETE FROM stuffToPlot WHERE commentID='{}'".format(acomment)) # remove the comment from the database
                                 conn.commit()
                                 thingtoremove = reddit.submission(id=parent) # grab the submission
-                                reddit.subreddit('x').message('Post violation', 'The post ' + submission.url + 'has reached below the threshold.')
+                                reddit.subreddit('x').message('Post violation', 'The post ' + submission.url + 'has reached below the threshold.') # forwards the URL to the post to the modmail
 
                         else:
                                 continue
