@@ -44,7 +44,6 @@ def process_commented_submissions():
 
 print("Logging into reddit!")
 reddit = praw.Reddit(user_agent='/u/-k-bot for /r/usefulredcircle',
-                                        client_id='sx4RNs3-Ib7-Dw', client_secret='MyKq21jxSYJmahxApevReJjGfSU',
                                         username='-k-bot', password='lazerdragon')
 
 
