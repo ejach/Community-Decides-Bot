@@ -12,7 +12,7 @@ def process_submission(submission):
         if submission.id in submission_id: # if the posts id is already in our database, ignore.
                 return None
         else:
-                iresponded = submission.reply("Upvote if this submission is a Useful Red Circle! Downvote if it is Useless. **This post has fell below the threshold. The moderators have been notified.** \n\n\n\n---\n\n^(Beep boop. I am a bot. If there are any issues, contact my) [^Daddy ](https://www.reddit.com/message/compose/?to=draco123465&subject=/u/-k-bot)\n\n^(Check out the ) [^GitHub ](https://github.com/ejach/Community-Decides-Bot)")
+                iresponded = submission.reply("Upvote if this submission is a Useful Red Circle! Downvote if it is Useless. \n\n\n\n---\n\n^(Beep boop. I am a bot. If there are any issues, contact my) [^Daddy ](https://www.reddit.com/message/compose/?to=draco123465&subject=/u/-k-bot)\n\n^(Check out the ) [^GitHub ](https://github.com/ejach/Community-Decides-Bot)")
                 iresponded.mod.distinguish(how='yes', sticky='True') # distinguish the post and sticky it.
                 submission_id.append(submission.id) # add the submission id to our variable
                 comment_id.append(iresponded.id) # add the comment id to our variable
