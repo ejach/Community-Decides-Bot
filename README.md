@@ -9,4 +9,6 @@ It's a simple Reddit bot, it comments on every new submission. If the comment ge
 
 # WARNING
 I am still a beginner with Python. This code is messy and may not function 100% correctly. Please start an issue or a pull request if you wish to help.
+
+
 Please be careful if you use this on a live SubReddit. The bot is experimental and may not work fully. Try on a test SubReddit first.
