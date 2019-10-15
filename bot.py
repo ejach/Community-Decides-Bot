@@ -35,7 +35,7 @@ def process_commented_submissions():
                                 c.execute("DELETE FROM stuffToPlot WHERE commentID='{}'".format(acomment)) # remove the comment from the database
                                 conn.commit()
                                 thingtoremove = reddit.submission(id=parent) # grab the submission
-                                reddit.subreddit('USEFULREDCIRCLEBOT').message('Post violation', 'The post ' + submission.url + 'has reached below the threshold.')
+                                reddit.subreddit('x').message('Post violation', 'The post ' + submission.url + 'has reached below the threshold.')
 
                         else:
                                 continue
@@ -43,8 +43,9 @@ def process_commented_submissions():
 
 
 print("Logging into reddit!")
-reddit = praw.Reddit(user_agent='/u/-k-bot for /r/usefulredcircle',
-                                        username='-k-bot', password='lazerdragon')
+reddit = praw.Reddit(user_agent='x',
+                                        client_id='x', client_secret='x',
+                                        username='x', password='x')
 
 
 print("Logged into reddit!")
@@ -64,7 +65,7 @@ print("Finished submission data entry, ready to go!")
 
 
 while True:
-        for submission in reddit.subreddit("USEFULREDCIRCLEBOT").new(limit=35):
+        for submission in reddit.subreddit("x").new(limit=35):
                 process_submission(submission)
 
 
