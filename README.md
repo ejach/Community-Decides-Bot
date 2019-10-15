@@ -1,5 +1,7 @@
 # What does it do?
 (Originally created by TempSafeGuard, but I have since lost contact with him because he has deleted his account.)
+
+
 It's a simple Reddit bot, it comments on every new submission. If the comment gets to a certain score or below, a message linking to the post will be sent to the ModMail. The bot will constantly check the new queue and the list of comments. all comments are saved to a local database.
 
 # How do I install it?
