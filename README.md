@@ -1,3 +1,5 @@
+# THIS PROJECT IS OBSOLETE
+
 # What does it do?
 (Originally created by TempSafeGuard, but I have since lost contact with them because they have deleted their account.)
 
