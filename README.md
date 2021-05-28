@@ -1,5 +1,3 @@
-# THIS PROJECT IS CURRENTLY UNSTABLE, USE AT YOUR OWN RISK
-
 # What does it do?
 (Originally created by TempSafeGuard, but I have since lost contact with them because they have deleted their account.)
 
@@ -8,11 +6,11 @@ It's a simple Reddit bot, it comments on every new submission. If the comment ge
 
 # How do I install it?
 1) Download this repo.
-2) Install the requirements detailed in requirements.txt.
-3) Add your account details in the related fields.
-4) Run it (it will automatically create a database).
+2) Install the requirements by running `pip3 install -r requirements.txt`.
+3) Add your account details in `config/config.ini`.
+4) Run it by using (it will automatically create a database).
 
-# WARNING
+# ⚠ WARNING ⚠
 I am still a beginner with Python. This code is messy and may not function 100% correctly. Please start an issue or a pull request if you wish to help.
 
 
