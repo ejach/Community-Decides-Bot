@@ -1,4 +1,4 @@
-# THIS PROJECT IS OBSOLETE
+# THIS PROJECT IS CURRENTLY UNSTABLE, USE AT YOUR OWN RISK
 
 # What does it do?
 (Originally created by TempSafeGuard, but I have since lost contact with them because they have deleted their account.)
