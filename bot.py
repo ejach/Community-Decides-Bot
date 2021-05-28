@@ -1,6 +1,11 @@
 import praw
 import time
 import sqlite3
+import configparser
+
+# Edit config/config.ini to enter your account information
+config = configparser.ConfigParser()
+config.read('config/config.ini')
 
 conn = sqlite3.connect('storage.db') # connect to the database. if it doesn't exist, automatically create.
 c = conn.cursor()
@@ -12,7 +17,7 @@ def process_submission(submission):
         if submission.id in submission_id: # if the posts id is already in our database, ignore.
                 return None
         else:
-                iresponded = submission.reply("Upvote if this submission is a Useful Red Circle! Downvote if it is Useless. \n\n\n\n---\n\n^(Beep boop. I am a bot. If there are any issues, contact my) [^Daddy ](https://www.reddit.com/message/compose/?to=draco123465&subject=/u/-k-bot)\n\n^(Check out the ) [^GitHub ](https://github.com/ejach/Community-Decides-Bot)")
+                iresponded = submission.reply("Upvote if this submission follows the commmunity guidelines. Downvote if it does not. \n\n\n\n---\n\n^(Beep boop. I am a bot. If there are any issues, contact my) [^Owner ](https://www.reddit.com/message/compose/?to=draco123465&subject=/u/-k-bot)\n\n^(Check out the ) [^GitHub ](https://github.com/ejach/Community-Decides-Bot)")
                 iresponded.mod.distinguish(how='yes', sticky='True') # distinguish the post and sticky it.
                 submission_id.append(submission.id) # add the submission id to our variable
                 comment_id.append(iresponded.id) # add the comment id to our variable
@@ -35,7 +40,7 @@ def process_commented_submissions():
                                 c.execute("DELETE FROM stuffToPlot WHERE commentID='{}'".format(acomment)) # remove the comment from the database
                                 conn.commit()
                                 thingtoremove = reddit.submission(id=parent) # grab the submission
-                                reddit.subreddit('x').message('Post violation', 'The post ' + submission.url + 'has reached below the threshold.') # forwards the URL to the post to the modmail
+                                reddit.subreddit(config['auth']['subreddit']).message('Post violation', 'The post ' + submission.url + ' has reached below the threshold.') # forwards the URL to the post to the modmail
 
                         else:
                                 continue
@@ -43,10 +48,10 @@ def process_commented_submissions():
 
 
 print("Logging into reddit!")
-reddit = praw.Reddit(user_agent='x',
-                                        client_id='x', client_secret='x',
-                                        username='x', password='x')
-
+reddit = praw.Reddit(user_agent=config['auth']['user_agent'],
+                                        client_id=config["auth"]["client_id"], client_secret=config["auth"]["client_secret"],
+                                        username=config["auth"]["username"], password=config["auth"]["password"])
+reddit.validate_on_submit = True
 
 print("Logged into reddit!")
 c.execute('CREATE TABLE IF NOT EXISTS stuffToPlot(commentID TEXT, submissionID TEXT)') # create tables if they dont exist
@@ -65,7 +70,7 @@ print("Finished submission data entry, ready to go!")
 
 
 while True:
-        for submission in reddit.subreddit("x").new(limit=35):
+        for submission in reddit.subreddit(config['auth']['subreddit']).new(limit=35):
                 process_submission(submission)
 
 
