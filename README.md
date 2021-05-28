@@ -1,8 +1,5 @@
-[![PyPI](https://img.shields.io/pypi/v/praw?label=Praw&style=flat-square)](https://pypi.org/project/praw/)
-
 # What does it do?
-(Originally created by TempSafeGuard, but I have since lost contact with them because they have deleted their account.)
-
+[![PyPI](https://img.shields.io/pypi/v/praw?label=Praw&style=flat-square)](https://pypi.org/project/praw/)
 
 It's a simple Reddit bot, it comments on every new submission. If the comment gets to a certain score or below, a message linking to the post will be sent to the ModMail. The bot will constantly check the new queue and the list of comments. all comments are saved to a local database.
 
