@@ -1,9 +1,10 @@
+import os
 import sqlite3
 
 import praw
 
-# Enter your subreddit name without the r/
-subreddit = 'your_subreddit'
+# Enter your subreddit without the r/
+subreddit = ''
 # Threshold that a comment crosses to send to modmail
 threshold = 1
 
@@ -56,9 +57,9 @@ def process_commented_submissions():
                 thingtoremove = reddit.submission(id=parent)
                 # forwards the URL to the post to the modmail
                 reddit.subreddit(subreddit).message('Post violation',
-                                                                      'The post ' + submission.url + 'has reached '
-                                                                                                     'below the '
-                                                                                                     'threshold.')
+                                                    'The post ' + submission.url + ' has reached '
+                                                                                   'below the '
+                                                                                   'threshold.')
             else:
                 continue
         return
